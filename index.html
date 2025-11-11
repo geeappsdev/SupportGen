@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support Response Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "marked": "https://aistudiocdn.com/marked@^13.0.2",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Fredoka', sans-serif;
+      }
+      
+      @keyframes blink {
+        50% { background-color: transparent; }
+      }
+      .animate-blink {
+        animation: blink 1s step-end infinite;
+      }
+
+      .cartoon-card {
+        border: 3px solid #1F2937; /* gray-800 */
+        box-shadow: 6px 6px 0px #1F2937;
+      }
+      
+      .cartoon-button {
+        border: 3px solid #1F2937;
+        box-shadow: 4px 4px 0px #1F2937;
+        transition: all 0.1s ease-in-out;
+      }
+      .cartoon-button:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #1F2937;
+      }
+      .cartoon-button:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0px #1F2937;
+      }
+      .cartoon-button:disabled, .cartoon-button[disabled] {
+        border-color: #9CA3AF; /* gray-400 */
+        box-shadow: 4px 4px 0px #9CA3AF !important;
+        background-color: #E5E7EB !important; /* gray-200 */
+        color: #9CA3AF !important;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+       .cartoon-button:disabled:hover, .cartoon-button[disabled]:hover {
+        transform: none !important;
+        box-shadow: 4px 4px 0px #9CA3AF !important;
+      }
+
+      .cartoon-input {
+        border: 3px solid #1F2937;
+        box-shadow: inset 2px 2px 0px rgba(0,0,0,0.05);
+      }
+      .cartoon-input:focus {
+        border-color: #3B82F6; /* blue-500 */
+        box-shadow: inset 2px 2px 0px rgba(0,0,0,0.05), 0 0 0 3px #FBBF24 !important; /* amber-400 */
+        outline: none !important;
+        ring-width: 0 !important;
+      }
+      
+      /* Custom prose styles for better link visibility and interaction */
+      .prose-custom a {
+        color: #2563EB; /* blue-600 */
+        font-weight: 600;
+        text-decoration: none;
+        background-image: linear-gradient(to top, #FBBF24 50%, transparent 50%);
+        background-size: 100% 200%;
+        background-position: 0 0;
+        transition: background-position 0.2s ease-in-out, color 0.2s ease-in-out;
+      }
+      .prose-custom a:hover {
+        background-position: 0 100%;
+        color: #1F2937; /* gray-800 */
+      }
+      .prose-custom a.link-bad {
+        text-decoration: line-through;
+        color: rgba(239, 68, 68, 0.7); /* red-500 with 70% opacity */
+        background-image: none;
+      }
+      .prose-custom a.link-bad:hover {
+        color: rgb(239, 68, 68); /* red-500 */
+      }
+      
+      /* Interactive Walkthrough Styles */
+      .walkthrough-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+      }
+      .walkthrough-spotlight {
+        position: absolute;
+        border-radius: 8px;
+        box-shadow: 0 0 0 9999px rgba(17, 24, 39, 0.6); /* gray-900 with 60% opacity */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+      }
+      .walkthrough-tooltip {
+        position: absolute;
+        z-index: 1000; /* Above the overlay's shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 320px;
+        max-width: 90vw;
+      }
+    </style>
+  </head>
+  <body class="bg-amber-50 text-gray-800">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

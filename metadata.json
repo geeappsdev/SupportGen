@@ -1,0 +1,5 @@
+{
+  "name": "Support Response Generator",
+  "description": "An intelligent assistant app that leverages the Gemini API to generate consistently formatted, empathetic, and accurate customer support responses based on a comprehensive set of predefined rules and templates.",
+  "requestFramePermissions": []
+}
